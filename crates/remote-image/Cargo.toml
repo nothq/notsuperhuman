@@ -1,0 +1,17 @@
+[package]
+name = "notsuperhuman-remote-image"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "remote_image"
+
+[dependencies]
+image.workspace = true
+remote_image_model = { package = "notsuperhuman-remote-image-model", path = "model" }
+reqwest.workspace = true
+roxmltree.workspace = true
+
+[lints]
+workspace = true
