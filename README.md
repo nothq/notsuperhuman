@@ -61,7 +61,7 @@ The release build limits idle Gmail connections and returns freed allocator page
 Install Rust 1.95 and the Xcode command line tools, then:
 
 ```sh
-git clone --branch notsuperhuman-app https://github.com/nothq/notsuperhuman.git
+git clone https://github.com/nothq/notsuperhuman
 cd notsuperhuman
 cargo run --release --locked
 ```
