@@ -1,0 +1,15 @@
+[package]
+name = "notsuperhuman"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+app_model = { package = "notsuperhuman-app-model", path = "../app/model" }
+gpui.workspace = true
+gpui_platform.workspace = true
+mail = { package = "notsuperhuman-mail", path = "../mail" }
+theme.workspace = true
+
+[lints]
+workspace = true

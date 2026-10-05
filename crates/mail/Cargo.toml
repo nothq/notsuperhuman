@@ -1,0 +1,54 @@
+[package]
+name = "notsuperhuman-mail"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[features]
+test-support = ["gpui/test-support"]
+
+[lib]
+name = "mail"
+
+[dependencies]
+app_model = { package = "notsuperhuman-app-model", path = "../app/model" }
+base64.workspace = true
+dirs.workspace = true
+encoding_rs = "0.8"
+gpui.workspace = true
+gpui_components = { package = "notsuperhuman-gpui-components", path = "../gpui-components" }
+html5ever.workspace = true
+image.workspace = true
+local_cache = { package = "notsuperhuman-local-cache", path = "../local_cache" }
+markup5ever_rcdom.workspace = true
+percent-encoding = "2.3"
+rand = "0.8.5"
+remote_image = { package = "notsuperhuman-remote-image", path = "../remote-image" }
+remote_image_model = { package = "notsuperhuman-remote-image-model", path = "../remote-image/model" }
+reqwest.workspace = true
+secret_store = { package = "notsuperhuman-secret-store", path = "../secret_store" }
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+time.workspace = true
+
+[target.'cfg(unix)'.dependencies]
+rustix = { version = "1.1", features = ["fs"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+aes = "0.8"
+cbc = { version = "0.1", features = ["alloc"] }
+pbkdf2 = "0.12"
+rusqlite = { version = "0.32", features = ["bundled"] }
+security-framework = "3.7"
+sha1 = "0.10"
+zeroize = "1.8"
+
+[target.'cfg(windows)'.dependencies]
+tempfile.workspace = true
+
+[dev-dependencies]
+gpui = { workspace = true, features = ["test-support"] }
+
+[lints]
+workspace = true

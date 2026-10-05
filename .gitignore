@@ -1,0 +1,9 @@
+/target
+/work
+/outputs
+.DS_Store
+.env
+.env.*
+auth.json
+*.log
+/dist

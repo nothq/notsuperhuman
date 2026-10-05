@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-05",
+  "macos": "26.5.1",
+  "hardware": "Mac17,8",
+  "metric": "macOS footprint, bytes (1024 bytes per KiB)",
+  "clients": {
+    "notsuperhuman": {
+      "process_counts": [
+        1,
+        1,
+        1
+      ],
+      "samples_bytes": [
+        74679280,
+        74679280,
+        74679280
+      ],
+      "median_mib": 71.2
+    },
+    "Superhuman Desktop": {
+      "process_counts": [
+        9,
+        9,
+        9
+      ],
+      "samples_bytes": [
+        1103887816,
+        1103183424,
+        1103461952
+      ],
+      "median_mib": 1052.3
+    }
+  },
+  "conditions": {
+    "screen": "unlocked, logged-in console session",
+    "account": "same Gmail account",
+    "views": {
+      "notsuperhuman": "Inbox, first metadata page loaded",
+      "Superhuman Desktop": "in:inbox search results"
+    },
+    "window_pixels": {
+      "notsuperhuman": [
+        2640,
+        1720
+      ],
+      "Superhuman Desktop": [
+        2992,
+        2522
+      ]
+    },
+    "sample_interval_seconds": 10,
+    "notsuperhuman_build": "release",
+    "Superhuman_Desktop_version": "1041.0.63",
+    "included_processes": "application, renderer, GPU, utility, and crash reporter; updater excluded",
+    "window_state": "Each client was raised to the foreground for its own three samples."
+  }
+}
