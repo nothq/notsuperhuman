@@ -12,6 +12,10 @@ pub fn app_data_dir() -> Result<PathBuf, String> {
         }
         return Ok(path);
     }
+    #[cfg(target_os = "windows")]
+    if let Some(path) = std::env::var_os("APPDATA") {
+        return Ok(PathBuf::from(path).join("notsuperhuman"));
+    }
     let home = home_dir()?;
     #[cfg(target_os = "macos")]
     {

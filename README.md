@@ -6,6 +6,25 @@ notsuperhuman is an open-source desktop mail client built in Rust with [GPUI](ht
 
 Email is essential software. It should be fast, understandable, and yours to improve. We are building the mail client we want to use every day: focused on the inbox, driven by the keyboard, and open from the rendering code to the network layer.
 
+## Download
+
+| Platform | Get it |
+| --- | --- |
+| macOS, Apple Silicon | [notsuperhuman-macos-arm64.dmg](https://github.com/nothq/notsuperhuman/releases/latest/download/notsuperhuman-macos-arm64.dmg) |
+| macOS, Intel | [notsuperhuman-macos-x86_64.dmg](https://github.com/nothq/notsuperhuman/releases/latest/download/notsuperhuman-macos-x86_64.dmg) |
+| Linux, x86_64 | [notsuperhuman-linux-x86_64.tar.gz](https://github.com/nothq/notsuperhuman/releases/latest/download/notsuperhuman-linux-x86_64.tar.gz) |
+| Windows, x86_64 | [notsuperhuman-windows-x86_64.zip](https://github.com/nothq/notsuperhuman/releases/latest/download/notsuperhuman-windows-x86_64.zip) |
+
+Each download is the whole app: one native binary. No installer, no runtime, nothing else to fetch.
+
+- **macOS**: open the .dmg and drag notsuperhuman into Applications. The first time you open it, go to System Settings › Privacy & Security and click **Open Anyway**.
+- **Linux**: `tar -xzf notsuperhuman-linux-x86_64.tar.gz` and run `./notsuperhuman-linux-x86_64/notsuperhuman`.
+- **Windows**: unzip and run `notsuperhuman.exe`.
+
+Continue with Superhuman runs on macOS. On Linux and Windows, connect Fastmail or another JMAP account.
+
+Every [release](https://github.com/nothq/notsuperhuman/releases) is built from source by GitHub Actions.
+
 ## Connect your inbox
 
 For Gmail, sign in to **Superhuman Desktop**, launch notsuperhuman, and choose **Continue with Superhuman**. Approve macOS Keychain access when prompted. Your connected Gmail accounts appear in the account switcher.
@@ -47,14 +66,13 @@ cd notsuperhuman
 cargo run --release --locked
 ```
 
-To build a macOS app bundle:
+To package the app the way releases do, a .dmg holding `notsuperhuman.app` (application identifier `dev.nothq.notsuperhuman`):
 
 ```sh
-./scripts/bundle-macos.sh
-open target/notsuperhuman.app
+cargo build --release --locked --target aarch64-apple-darwin
+scripts/package aarch64-apple-darwin
+open dist/notsuperhuman-macos-arm64.dmg
 ```
-
-The bundle uses the application identifier `dev.nothq.notsuperhuman`.
 
 Run the tests with:
 

@@ -6,3 +6,4 @@
 .env.*
 auth.json
 *.log
+/dist
